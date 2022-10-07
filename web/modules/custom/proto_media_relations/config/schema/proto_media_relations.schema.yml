@@ -1,0 +1,7 @@
+---
+field.field.*.*.*.third_party.proto_media_relations:
+  type: mapping
+  mapping:
+    target_field:
+      type: string
+      label: The name of the target field.

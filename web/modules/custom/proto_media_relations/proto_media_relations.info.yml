@@ -1,0 +1,7 @@
+---
+name: Proto Media Relations
+description: Prototypical PoC of things.
+type: module
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:media

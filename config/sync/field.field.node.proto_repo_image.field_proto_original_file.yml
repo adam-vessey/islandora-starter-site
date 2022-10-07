@@ -1,0 +1,34 @@
+uuid: cd41c845-f1e6-4707-992b-33c4c472b271
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_proto_original_file
+    - media.type.image
+    - node.type.proto_repo_image
+  module:
+    - proto_media_relations
+third_party_settings:
+  proto_media_relations:
+    target_field: 'that other one'
+id: node.proto_repo_image.field_proto_original_file
+field_name: field_proto_original_file
+entity_type: node
+bundle: proto_repo_image
+label: 'Proto Original File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: document
+field_type: entity_reference

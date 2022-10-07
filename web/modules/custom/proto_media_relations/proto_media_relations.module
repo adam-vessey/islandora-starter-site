@@ -1,0 +1,40 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_ID_alter() for field_config_edit_form.
+ */
+function proto_media_relations_form_field_config_edit_form_alter(array &$form, FormStateInterface $form_state, string $form_id) : void {
+  dsm(func_get_args());
+  /** @var \Drupal\field_ui\Form\FieldConfigEditForm $form_object */
+  $form_object = $form_state->getFormObject();
+  dsm($form_object);
+
+  /** @var \Drupal\field\FieldConfigInterface $entity */
+  $entity = $form_object->getEntity();
+
+  if ($entity->getType() !== 'entity_reference') {
+    // We only apply to entity reference fields.
+    return;
+  }
+
+  $entity_storage_config = $entity->getFieldStorageDefinition();
+  if ($entity_storage_config->getSetting('target_type') !== 'media') {
+    // More specifically, we only apply to entity references which reference
+    // "media" entities.
+    return;
+  }
+
+  dsm('wee');
+  $form['third_party_settings']['proto_media_relations'] = [
+    '#type' => 'details',
+    '#title' => t('Proto Media Relations'),
+    '#collapsed' => FALSE,
+    'target_field' => [
+      '#type' => 'textfield',
+      '#title' => t('Target Field'),
+      '#default_value' => $entity->getThirdPartySetting('proto_media_relations', 'target_field'),
+    ],
+  ];
+}

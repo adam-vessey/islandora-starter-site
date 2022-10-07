@@ -1,0 +1,11 @@
+uuid: ad1b956c-36c2-4f5a-9eb7-e97474b7e19b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.proto_repo_image
+id: node.proto_repo_image
+target_entity_type_id: node
+target_bundle: proto_repo_image
+default_langcode: site_default
+language_alterable: false
