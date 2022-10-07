@@ -6,10 +6,8 @@ use Drupal\Core\Form\FormStateInterface;
  * Implements hook_form_ID_alter() for field_config_edit_form.
  */
 function proto_media_relations_form_field_config_edit_form_alter(array &$form, FormStateInterface $form_state, string $form_id) : void {
-  dsm(func_get_args());
   /** @var \Drupal\field_ui\Form\FieldConfigEditForm $form_object */
   $form_object = $form_state->getFormObject();
-  dsm($form_object);
 
   /** @var \Drupal\field\FieldConfigInterface $entity */
   $entity = $form_object->getEntity();
@@ -26,7 +24,6 @@ function proto_media_relations_form_field_config_edit_form_alter(array &$form, F
     return;
   }
 
-  dsm('wee');
   $form['third_party_settings']['proto_media_relations'] = [
     '#type' => 'details',
     '#title' => t('Proto Media Relations'),
